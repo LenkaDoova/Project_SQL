@@ -58,11 +58,11 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 ## Pořadí skriptů:
 
 
-- 1) Script1 Tab1, Task1 Wage Decrease
-- 2) Script2 Task2 Milk, Bread
-- 3) Script3 Task3 Slowest Price Rate
-- 4) Script4 Task4 Price Growth Over 10 Pct
-- 5) Script5 Tab2, Task5 GDP
+- 1) Script1 Tab1, Task1 Wage Decrease FV
+- 2) Script2 Task2 Milk, Bread FV
+- 3) Script3 Task3 Slowest Price Rate FV
+- 4) Script4 Task4 Price Growth Over 10 Pct FV
+- 5) Script5 Tab2, Task5 GDP FV
 
 ## Vytvoření dvou základních tabulek:
 
