@@ -60,7 +60,7 @@ FROM cte_rank_CAGR
 WHERE rank_CAGR = 1 
 ) 
 SELECT
-	DISTINCT(year_P),
+	year_P,
 	food,
 	avg_price_norm,
 	price_diff_pct,
