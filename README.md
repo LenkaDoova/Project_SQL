@@ -1,4 +1,3 @@
-# Project_SQL
 # Projekt z SQL - Životní úroveň obyvatelstva ČR v letech 2000 - 2021
 
 ## Shrnutí projektu
@@ -71,11 +70,11 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 
 * Průměrné ceny sledovaných potravin:
 
-Spojení tabulek *czechia_price* a *czechia_price_category* inner joinem pro propojení kódů s konkrétními názvy jednotlivých potravin. Zde bylo třeba získat průměrnou cenu každé potraviny za rok bez ohledu na jejich granularitu (cena potravin byla sledována v jednotlivých regionech ČR v odlišných časových úsecích, zpravidla několika týdenních). Tabulka s cenami byla též normalizována tak, aby došlo ke sjednocení cen kategorií přibližně za 1 kg a 1 l (viz např. cena 1 vejce velikosti M-L byla standardizována na 0,06 kg). Ceny kategorií byly sledovány většinou za období 2006-2018, s výjimkou jakostního vína (2015-2018). 
+Spojení tabulek *czechia_price* a *czechia_price_category* inner joinem pro propojení kódů s konkrétními názvy jednotlivých potravin. Zde bylo třeba získat průměrnou cenu každé potraviny za rok bez ohledu na jejich granularitu (cena potravin byla sledována v jednotlivých regionech ČR v odlišných časových úsecích, zpravidla několika týdenních). Tabulka s cenami byla též normalizována tak, aby došlo ke sjednocení cen kategorií přibližně za 1 kg a 1 l (viz např. cena 1 vejce velikosti M-L byla standardizována na 0,06 kg). Ceny kategorií byly sledovány většinou za období 2006-2018, s výjimkou jakostního vína (2015-2018). Tabulka nazvána *t_wages*. 
 
 * Průměrné mzdy v jednotlivých obdobích:
 
-Spojení tabulky *czechia_payroll* a *czechia_payroll_industry_branch* inner joinem pro propojení kódů s konkrétními názvy jednotlivých odvětví. V tabulce byla ponechána pouze data týkající se mezd a odstraněna granularita dat na úrovni kvartálů. Mzdy byly sledovány za období 2000-2021.
+Spojení tabulky *czechia_payroll* a *czechia_payroll_industry_branch* inner joinem pro propojení kódů s konkrétními názvy jednotlivých odvětví. V tabulce byla ponechána pouze data týkající se mezd a odstraněna granularita dat na úrovni kvartálů. Mzdy byly sledovány za období 2000-2021. Tabulka nazvána *t_prices_norm*
 
 * Finální tabulka k 1.-4. úkolu:
 
@@ -83,9 +82,9 @@ K průměrné roční mzdě každého odvětví (sloupce *year*, *industry*, *av
 
 - B) Vytvoření společné tabulky k 5. úkolu: *t_{jmeno}_{prijmeni}_project_SQL_secondary_final*
 
-* Spojení tabulek *economies* a *countries* inner joinem (sloupce *year*, *country*, *gdp*, *gini*, *population*), dále selekce evropských zemí dle jednotlivých světových regionů ('British Isles', 'Western Europe', 'Southern Europe', 'Central and Southeast Europe', 'Baltic Countries', 'Nordic Countries', 'Eastern Europe').
+* Spojení tabulek *economies* a *countries* inner joinem (sloupce *year*, *country*, *gdp*, *gini*, *population*), dále selekce evropských zemí dle sloupce *continent* a omezení na období odpovídající sledování mezd a cen potravin (2000-2021, resp. do r. 2020, neboť v tabulce *economies* jsou sledované hodnoty uváděné pouze do r. 2020).
 
-Tato tabulka byla left joinem připojena k první tabulce *t_{jmeno}_{prijmeni}_project_SQL_primary_final*
+Tato tabulka byla inner joinem připojena k tabulkám *t_wages* a *t_prices_norm*
 
 ## ÚKOL 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 
@@ -158,3 +157,7 @@ Průměrná cena mléka v r. 2018 činila 19,82 Kč, chléb stál 24,24 Kč. Zam
 ### Shrnutí výsledků:
 
 * analýza neprokázala jednoznačný vztah mezi růstem HDP a růstem mezd či cen potravin. Růst mezd sice s HDP částečně koreluje, ale bez výrazné závislosti a často se zpožděním. U cen potravin se žádná systematická vazba neprokázala. Výsledky naznačují, že na vývoj mezd a zejména cen potravin působí i další faktory mimo HDP
+
+## Závěr/Shrnutí projektu:
+
+Projekt se zaměřuje na analýzu vývoje mezd a cen potravin v České republice v letech 2000–2021 s cílem posoudit změny kupní síly obyvatelstva. Na základě integrace a úpravy dat z více zdrojů (Portál otevřených dat ČR) byly vytvořeny dvě finální tabulky, které sloužily jako podklad pro zodpovězení pěti výzkumných otázek. Analýza ukázala, že mzdy ve většině odvětví dlouhodobě rosttly, avšak v některých obdobích docházelo k jejich poklesu, zejména kolem roku 2013. Kupní síla se mezi lety 2006 a 2018 mírně zlepšila, přestože ceny základních potravin rostly. Nejpomalejší růst cen byl zaznamenán u cukru, jehož cena dokonce v průměru klesala. Nebyl identifikován žádný rok, kdy by růst cen potravin výrazně převýšil růst mezd o více než 10 %. Analýza rovněž neprokázala jednoznačný vztah mezi vývojem HDP a změnami mezd či cen potravin, což naznačuje vliv dalších ekonomických faktorů. Celkově projekt poskytuje ucelený pohled na vývoj životní úrovně v ČR a zároveň upozorňuje na limity dostupných dat.
