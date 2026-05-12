@@ -70,11 +70,11 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 
 * Průměrné ceny sledovaných potravin:
 
-Spojení tabulek *czechia_price* a *czechia_price_category* inner joinem pro propojení kódů s konkrétními názvy jednotlivých potravin. Zde bylo třeba získat průměrnou cenu každé potraviny za rok bez ohledu na jejich granularitu (cena potravin byla sledována v jednotlivých regionech ČR v odlišných časových úsecích, zpravidla několika týdenních). Tabulka s cenami byla též normalizována tak, aby došlo ke sjednocení cen kategorií přibližně za 1 kg a 1 l (viz např. cena 1 vejce velikosti M-L byla standardizována na 0,06 kg). Ceny kategorií byly sledovány většinou za období 2006-2018, s výjimkou jakostního vína (2015-2018). Tabulka nazvána *t_wages*. 
+Spojení tabulek *czechia_price* a *czechia_price_category* inner joinem pro propojení kódů s konkrétními názvy jednotlivých potravin. Zde bylo třeba získat průměrnou cenu každé potraviny za rok bez ohledu na jejich granularitu (cena potravin byla sledována v jednotlivých regionech ČR v odlišných časových úsecích, zpravidla několika týdenních). Tabulka s cenami byla též normalizována tak, aby došlo ke sjednocení cen kategorií přibližně za 1 kg a 1 l (viz např. cena 1 vejce velikosti M-L byla standardizována na 0,06 kg). Ceny kategorií byly sledovány většinou za období 2006-2018, s výjimkou jakostního vína (2015-2018). Tabulka nazvána *t_prices_norm*. 
 
 * Průměrné mzdy v jednotlivých obdobích:
 
-Spojení tabulky *czechia_payroll* a *czechia_payroll_industry_branch* inner joinem pro propojení kódů s konkrétními názvy jednotlivých odvětví. V tabulce byla ponechána pouze data týkající se mezd a odstraněna granularita dat na úrovni kvartálů. Mzdy byly sledovány za období 2000-2021. Tabulka nazvána *t_prices_norm*
+Spojení tabulky *czechia_payroll* a *czechia_payroll_industry_branch* inner joinem pro propojení kódů s konkrétními názvy jednotlivých odvětví. V tabulce byla ponechána pouze data týkající se mezd a odstraněna granularita dat na úrovni kvartálů. Mzdy byly sledovány za období 2000-2021. Tabulka nazvána *t_wages*. 
 
 * Finální tabulka k 1.-4. úkolu:
 
